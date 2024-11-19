@@ -19,6 +19,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
 		"@iconify-json/lucide": "^1.2.15",
+		"@iconify/utils": "^2.1.33",
 		"@types/node": "^22.9.0",
 		"@types/react": "^18.3.12",
 		"@types/react-dom": "^18.3.1",
