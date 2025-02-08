@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 
@@ -47,12 +48,24 @@ export const ThemeChanger = () => {
 			<div tabIndex={0} role="button" className="btn m-1">
 				<ThemeItem theme={theme as Theme} />
 			</div>
-			<ul className="dropdown-content menu bg-base-100 rounded-box z-[1] p-2 shadow">
+			<ul
+				tabIndex={0}
+				className="dropdown-content menu bg-base-300 rounded-box z-1 p-2 shadow-2xl"
+			>
 				{themes.map((t) => (
 					<li key={t}>
-						<button type="button" onClick={() => setTheme(t)}>
+						<label className={clsx({ 'menu-active': t === theme })}>
+							<input
+								type="radio"
+								name="theme-dropdown"
+								className="hidden"
+								onClick={() => setTheme(t)}
+								aria-label={t}
+								value={t}
+								checked={t === theme}
+							/>
 							<ThemeItem theme={t as Theme} />
-						</button>
+						</label>
 					</li>
 				))}
 			</ul>
